@@ -1,11 +1,15 @@
 <template>
-	<div class="home-view">
+	<div class="register-view">
 		
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'Home'
+		name: 'Register'
 	}
 </script>
+
+<style>
+	
+</style>

@@ -1,11 +1,15 @@
 <template>
-	<div class="home-view">
+	<div class="login-view">
 		
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'Home'
+		name: 'Login'
 	}
 </script>
+
+<style>
+	
+</style>
