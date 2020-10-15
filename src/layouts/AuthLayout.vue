@@ -92,7 +92,7 @@
 				&__link {
 					position: relative;
 					font-family: $o-semibold;
-					font-size: 18px;
+					font-size: 1.2em;
 					text-decoration: none;
 					text-align: center;
 					flex-grow: 1;
@@ -124,11 +124,31 @@
 				}
 			}
 			hr {
-				margin-top: 10px;
+				margin: 10px 0 25px 0;
 				height: 2px;
 				width: 100%;
 				border: none;
 				background: $primary-light;
+			}
+		}
+	}
+	@media (max-width: 767px) {
+		.auth-layout {
+			&__form {
+				padding: 30px;
+				.navbar {
+
+				}
+			}
+		}
+	}
+	@media (max-width: 576px) {
+		.auth-layout {
+			&__form {
+				padding: 20px;
+				.navbar {
+
+				}
 			}
 		}
 	}
