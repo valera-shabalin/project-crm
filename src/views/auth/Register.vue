@@ -1,16 +1,18 @@
 <template>
 	<form class="register-view d-flex flex-column" @submit.prevent="register">
-		<TextInput v-model.trim="name" :placeholder="'Имя'" />
-		<TextInput v-model.trim="surname" :placeholder="'Фамилия'" />
-		<TextInput v-model.trim="email" :placeholder="'Адрес электронной почты'" />
-		<PasswordInput v-model.trim="password" :placeholder="'Придумайте пароль'" />
-		<PasswordInput v-model.trim="repeatPassword" :placeholder="'Повторите пароль'" />
+		<TextInput v-model.trim="name" :placeholder="'Имя'" :validate="$v.name" />
+		<TextInput v-model.trim="surname" :placeholder="'Фамилия'" :validate="$v.surname" />
+		<TextInput v-model.trim="email" :placeholder="'Адрес электронной почты'" :validate="$v.email" />
+		<PasswordInput v-model.trim="password" :placeholder="'Придумайте пароль'" :validate="$v.password" />
+		<PasswordInput v-model.trim="repeatPassword" :placeholder="'Повторите пароль'" :validate="$v.repeatPassword" />
 		<DefaultLabel v-model="policy" :id="'register-policy'">Согласен с <a href="/policy">политикой конфиденциальности</a></DefaultLabel>
-		<DefaultButton>Зарегистрироваться</DefaultButton>
+		<DefaultButton :disable="buttonDisable">Зарегистрироваться</DefaultButton>
 	</form>
 </template>
 
 <script>
+	import { email, required, minLength, maxLength, sameAs } from 'vuelidate/lib/validators'
+
 	export default {
 		name: 'Register',
 		data: () => ({
@@ -19,11 +21,25 @@
 			email: '',
 			password: '',
 			repeatPassword: '',
-			policy: false
+			policy: false,
+			buttonDisable: false
 		}),
+		validations: {
+			name: { required },
+			surname: { required },
+			email: { required, email },
+			password: { required, minLength: minLength(8), maxLength: maxLength(255), },
+			repeatPassword: { required, sameAsPassword: sameAs('password') }
+		},
 		methods: {
 			register() {
-
+				if (this.$v.$invalid) {
+					this.$v.$touch()
+					return
+				}
+				if (this.buttonDisable) return
+				this.buttonDisable = true
+				// API register
 			}
 		}
 	}

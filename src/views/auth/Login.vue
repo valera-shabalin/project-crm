@@ -1,22 +1,35 @@
 <template>
 	<form class="login-view d-flex flex-column" @submit.prevent="login">
-		<TextInput v-model.trim="email" :placeholder="'Адрес электронной почты'" />
-		<TextInput v-model.trim="password" :placeholder="'Пароль'" />
-		<DefaultButton>Войти</DefaultButton>
+		<TextInput v-model.trim="email" :placeholder="'Адрес электронной почты'" :validate="$v.email" />
+		<PasswordInput v-model.trim="password" :placeholder="'Пароль'" :validate="$v.password" />
+		<DefaultButton :disable="buttonDisable">Войти</DefaultButton>
 		<router-link to="/recovery" class="align-self-center">Забыли пароль?</router-link>
 	</form>
 </template>
 
 <script>
+	import { email, required } from 'vuelidate/lib/validators'
+
 	export default {
 		name: 'Login',
 		data: () => ({
 			email: '',
-			password: ''
+			password: '',
+			buttonDisable: false
 		}),
+		validations: {
+			email: { required, email },
+			password: { required }
+		},
 		methods: {
 			login() {
-
+				if (this.$v.$invalid) {
+					this.$v.$touch()
+					return
+				}
+				if (this.buttonDisable) return
+				this.buttonDisable = true
+				// API LOGIN
 			}
 		}
 	}
