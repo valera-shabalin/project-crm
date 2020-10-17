@@ -2,7 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
+import firebaseConfig from './config/config-firebase.js'
 
 /* Include plugins */
 import Vuelidate from 'vuelidate'
@@ -27,19 +30,17 @@ Vue.component('PasswordInput', PasswordInput)
 Vue.component('DefaultLabel', DefaultLabel)
 Vue.component('DefaultButton', DefaultButton)
 
-/* Install firebase */
-firebase.initializeApp({
-	apiKey: "AIzaSyA_wzhNNw-XcO0nI5ks8RyI47QiDOE6JB8",
-	authDomain: "project-crm-12b42.firebaseapp.com",
-	databaseURL: "https://project-crm-12b42.firebaseio.com",
-	projectId: "project-crm-12b42",
-	storageBucket: "project-crm-12b42.appspot.com",
-	messagingSenderId: "1080162688862",
-	appId: "1:1080162688862:web:7ff277aa03921dc52479cf"
-})
+/* Include Firebase to project */
+firebase.initializeApp(firebaseConfig)
 
-new Vue({
-	router,
-	store,
-	render: h => h(App)
-}).$mount('#app')
+/* Initialization application */
+let app
+firebase.auth().onAuthStateChanged(() => {
+	if ( !app ) {
+		app = new Vue({
+			router,
+			store,
+			render: h => h(App)
+		}).$mount('#app')
+	}
+})

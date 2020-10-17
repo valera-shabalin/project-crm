@@ -1,5 +1,6 @@
 <template>
 	<div class="text-input" :class="{ 'invalid': validate != null && validate.$dirty && validate.$invalid }">
+		<span class="text-input__title" v-if="title">{{ title }}</span>
 		<input 
 			type="text" 
 			class="text-input__main"
@@ -23,7 +24,8 @@
 		props: {
 			placeholder: { type: String, default: 'Введите данные' },
 			content: { type: String, default: '' },
-			validate: { type: Object, default: null }
+			validate: { type: Object, default: null },
+			title: { type: String, default: null }
 		}
 	}
 </script>
@@ -31,6 +33,17 @@
 <style lang="scss">
 	.text-input {
 		position: relative;
+		&__title {
+			position: absolute;
+			top: -6px;
+			left: 12px;
+			padding: 0 3px;
+			display: inline-block;
+			font-size: 0.7em;
+			color: $primary-light;
+			background: #fff;
+			transition: all ease .2s;
+		}
 		&__main {
 			padding: 12px;
 			width: 100%;
@@ -45,9 +58,15 @@
 				color: $primary-light;
 			}
 		}
+		&:focus-within &__title {
+			color: $primary;
+		}
 		&.invalid {
 			.text-input__main {
 				border: 1px solid $red;
+			}
+			.text-input__title {
+				color: $red;
 			}
 			.error {
 				display: inline-block;

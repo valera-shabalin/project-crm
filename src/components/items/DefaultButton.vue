@@ -19,7 +19,7 @@
 
 <style lang="scss">
 	.default-button {
-		padding: 12px 12px;
+		padding: 12px;
 		text-align: center;
 		border: none;
 		border-radius: 5px;
@@ -41,6 +41,11 @@
 		}
 		&:active {
 			background: darken($primary, 5)
+		}
+	}
+	@media (max-width: 576px) {
+		.default-button {
+			padding: 10px;
 		}
 	}
 </style>
