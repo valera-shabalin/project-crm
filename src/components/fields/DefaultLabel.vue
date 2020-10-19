@@ -1,5 +1,5 @@
 <template>
-	<div class="default-label d-flex align-items-center" :class="{ 'active': checked }">
+	<div class="default-label" :class="{ 'active': checked, 'invalid': validate != null && validate.$dirty && !validate.checked }">
 		<label :for="id"></label>
 		<input 
 			type="checkbox"
@@ -20,14 +20,18 @@
 		},
 		props: {
 			checked: { type: Boolean, default: false },
-			id: { type: String, default: 'default-label' }
+			id: { type: String, default: 'default-label' },
+			validate: { type: Object, default: null }
 		}
 	}
 </script>
 
 <style lang="scss">
 	.default-label {
+		display: flex;
+		align-items: center;
 		label {
+			margin-right: 8px;
 			height: 15px;
 			width: 15px;
 			border: 1px solid $primary-light;
@@ -41,6 +45,15 @@
 		&.active label {
 			border: 1px solid $primary;
 			background: $primary;
+		}
+		&.invalid label {
+			border: 1px solid $red;
+		}
+		&.invalid &__content {
+			color: $red;
+			a {
+				color: $red;
+			}
 		}
 	}
 </style>

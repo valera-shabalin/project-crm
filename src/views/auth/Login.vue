@@ -61,4 +61,17 @@
 			margin-bottom: 20px;
 		}
 	}
+	@media (max-width: 576px) {
+		.login-view {
+			.text-input {
+				margin-bottom: 10px;
+			}
+			.password-input {
+				margin-bottom: 10px;
+			}
+			.default-button {
+				margin-bottom: 15px;
+			}
+		}
+	}
 </style>

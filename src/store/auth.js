@@ -15,6 +15,17 @@ export default {
 						reject(err.code)
 					})
 			})
+		},
+		REGISTER({ dispatch, commit }, { email, password }) {
+			return new Promise((resolve, reject) => {
+				firebase.auth().createUserWithEmailAndPassword(email, password)
+					.then(() => {
+						resolve()
+					})
+					.catch(err => {
+						reject(err.code)
+					})
+			})
 		}
 	},
 	mutations: {

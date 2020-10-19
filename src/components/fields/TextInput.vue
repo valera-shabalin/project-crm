@@ -47,6 +47,7 @@
 		&__main {
 			padding: 12px;
 			width: 100%;
+			font-size: 1em;
 			border: 1px solid $primary-light;
 			border-radius: 5px;
 			color: $accent;

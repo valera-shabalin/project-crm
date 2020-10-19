@@ -7,8 +7,8 @@
 			:content="content"
 			:placeholder="placeholder"
 			@input="$emit('input', $event.target.value)">
-		<SvgEyeOutline class="show-hide-password" v-if="type == 'password'" @click="toggle" />
-		<SvgEyeLine class="show-hide-password" v-else @click="toggle" />
+		<SvgEyeOutline class="show-hide-password" @click="toggle" v-if="type == 'password'"/>
+		<SvgEyeLine class="show-hide-password" @click="toggle" v-else/>
 		<span class="error" v-if="validate != null && !validate.required">Заполните это поле</span>
 		<span class="error" v-else-if="validate.email != null && !validate.email">Некорректный адрес электронной почты</span>
 		<span class="error" v-else-if="validate.minLength != null && !validate.minLength">Минимальная длина - {{ validate.$params.minLength.min }}</span>
@@ -61,6 +61,7 @@
 		&__main {
 			padding: 12px;
 			width: 100%;
+			font-size: 1em;
 			border: 1px solid $primary-light;
 			border-radius: 5px;
 			color: $accent;
@@ -74,8 +75,12 @@
 		}
 		.show-hide-password {
 			position: absolute;
-			top: 12px;
+			top: 10px;
 			right: 15px;
+			height: 22px;
+			width: 22px;
+			stroke: $primary-light;
+			fill: $primary-light;
 			background: #fff;
 			cursor: pointer;
 		}
@@ -103,11 +108,13 @@
 	@media (max-width: 576px) {
 		.password-input {
 			&__main {
-				padding: 10px;
+				padding: 8px;
 			}
 			.show-hide-password {
-				top: 10px;
+				top: 6px;
 				right: 10px;
+				height: 20px;
+				width: 20px;
 			}
 		}
 	}
