@@ -1,6 +1,6 @@
 <template>
   <header class="header d-flex align-items-center justify-content-between">
-    <div class="header__humb">
+    <div class="header__humb" @click="$emit('toggleMenu')">
       <SvgHumburger />
     </div>
     <div class="header__tool">
@@ -29,7 +29,6 @@
 <style lang="scss">
   .header {
     padding: 20px 30px;
-    box-shadow: 0px 4px 10px 2px #FAFAFA;
     &__humb {
       cursor: pointer;
     }
