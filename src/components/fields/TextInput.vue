@@ -7,10 +7,10 @@
 			:content="content"
 			:placeholder="placeholder"
 			@input="$emit('input', $event.target.value)">
-		<span class="error" v-if="validate != null && !validate.required">Заполните это поле</span>
+		<span class="error" v-if="validate.required != null && !validate.required">Заполните это поле</span>
 		<span class="error" v-else-if="validate.email != null && !validate.email">Некорректный адрес электронной почты</span>
-		<span class="error" v-else-if="validate.minLength != null && !validate.minLength">Минимальная длина - {{ validate.$params.minLength.min }}</span>
-		<span class="error" v-else-if="validate.maxLength != null && !validate.maxLength">Максимальная длина - {{ validate.$params.maxLength.max }}</span>
+		<span class="error" v-else-if="validate.minLength != null && !validate.minLength">Минимальная длина - {{ content.length }} из {{ validate.$params.minLength.min }}</span>
+		<span class="error" v-else-if="validate.maxLength != null && !validate.maxLength">Максимальная длина {{ validate.$params.maxLength.max }}</span>
 	</div>
 </template>
 
@@ -47,7 +47,6 @@
 		&__main {
 			padding: 12px;
 			width: 100%;
-			font-size: 1em;
 			border: 1px solid $primary-light;
 			border-radius: 5px;
 			color: $accent;

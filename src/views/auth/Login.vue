@@ -23,7 +23,7 @@
 			password: { required }
 		},
 		methods: {
-			login() {
+			async login() {
 				if (this.$v.$invalid) {
 					this.$v.$touch()
 					return
@@ -34,15 +34,14 @@
 					email: this.email,
 					password: this.password
 				}
-				this.$store.dispatch('LOGIN', data)
-					.then(() => {
-						this.buttonDisable = false
-						this.$router.push('/')
-					})
-					.catch(err => {
-						this.$popup(messages[err])
-						this.buttonDisable = false
-					})
+				try {
+				  await this.$store.dispatch('LOGIN', data)
+          this.buttonDisable = false
+          this.$router.push('/')
+        } catch(err) {
+				  this.$popup(messages[err.code])
+          this.buttonDisable = false
+        }
 			}
 		}
 	}

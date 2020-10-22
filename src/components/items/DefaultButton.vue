@@ -20,6 +20,7 @@
 <style lang="scss">
 	.default-button {
 		padding: 12px;
+    min-height: 42px;
 		text-align: center;
 		border: none;
 		border-radius: 5px;

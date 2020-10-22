@@ -50,6 +50,8 @@ img {
 }
 
 input, textarea, button {
+	font-family: $o-regular;
+	font-size: 0.9em;
 	-webkit-appearance: none;
 	outline: none;
 }
@@ -61,6 +63,6 @@ input, textarea, button {
 	padding: 20px 30px;
 	border: 1px solid $primary-light;
 	border-radius: 3px;
-	background: $dark;
+	background: $accent;
 	color: $primary-light;
 }

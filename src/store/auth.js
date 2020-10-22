@@ -5,27 +5,15 @@ export default {
 		
 	},
 	actions: {
-		LOGIN({ dispatch, commit }, { email, password }) {
-			return new Promise((resolve, reject) => {
-				firebase.auth().signInWithEmailAndPassword(email, password)
-					.then(() => {
-						resolve()
-					})
-					.catch(err => {	
-						reject(err.code)
-					})
-			})
+		async LOGIN({ dispatch, commit }, { email, password }) {
+			try {
+				await firebase.auth().signInWithEmailAndPassword(email, password)
+			} catch(err) { throw err }
 		},
-		REGISTER({ dispatch, commit }, { email, password }) {
-			return new Promise((resolve, reject) => {
-				firebase.auth().createUserWithEmailAndPassword(email, password)
-					.then(() => {
-						resolve()
-					})
-					.catch(err => {
-						reject(err.code)
-					})
-			})
+		async REGISTER({ dispatch, commit }, data) {
+			try {
+				await firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
+			} catch(err) { throw err }
 		}
 	},
 	mutations: {

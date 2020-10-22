@@ -17,46 +17,44 @@
 	export default {
 		name: 'Register',
 		data: () => ({
-			name: '',
-			surname: '',
-			email: '',
-			password: '',
+      name: '',
+      surname: '',
+      email: '',
+      password: '',
 			repeatPassword: '',
 			policy: false,
 			buttonDisable: false
 		}),
 		validations: {
-			name: { required },
-			surname: { required },
-			email: { required, email },
-			password: { required, minLength: minLength(8), maxLength: maxLength(255), },
+      name: { required },
+      surname: { required },
+      email: { required, email },
+      password: { required, minLength: minLength(8), maxLength: maxLength(255), },
 			repeatPassword: { required, sameAsPassword: sameAs('password') },
 			policy: { checked: val => val }
 		},
 		methods: {
-			register() {
+			async register() {
 				if (this.$v.$invalid) {
 					this.$v.$touch()
 					return
 				}
 				if (this.buttonDisable) return
 				this.buttonDisable = true
-				const data = {
-					email: this.email,
-					password: this.password,
-					name: this.name,
-					surname: this.surname
-				}
-				this.$store.dispatch('REGISTER', data)
-					.then(() => {
-						this.buttonDisable = false
-						this.$router.push('/')
-					})
-					.catch(err => {
-						this.$popup(messages[err])
-						this.buttonDisable = false
-					})
-				
+        const data = {
+				  name: this.name,
+          surname: this.surname,
+          email: this.email,
+          password: this.password
+        }
+				try {
+				  await this.$store.dispatch('REGISTER', data)
+          this.buttonDisable = false
+          this.$popup('Успешная регистрация')
+        } catch(err) {
+				  this.buttonDisable = false
+          this.$popup(messages[err.code])
+        }
 			}
 		}
 	}
