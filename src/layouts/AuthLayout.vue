@@ -12,7 +12,7 @@
 							<router-link to="/register" active-class="current" class="navbar__link">Регистрация</router-link>
 						</nav>
 						<hr>
-						<router-view></router-view>
+            <router-view></router-view>
 					</div>
 				</div>
 			</div>

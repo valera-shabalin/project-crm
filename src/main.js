@@ -9,6 +9,7 @@ import firebaseConfig from './config/config-firebase.js'
 
 /* Include plugins */
 import Vuelidate from 'vuelidate'
+import messagePlugin from './utils/message.plugin'
 
 /* Inlude styles */
 import './assets/scss/main.scss'
@@ -23,6 +24,7 @@ Vue.config.productionTip = false
 
 /* Install plugins */
 Vue.use(Vuelidate)
+Vue.use(messagePlugin)
 
 /* Install global components */
 Vue.component('TextInput', TextInput)

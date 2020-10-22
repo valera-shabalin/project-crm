@@ -53,3 +53,14 @@ input, textarea, button {
 	-webkit-appearance: none;
 	outline: none;
 }
+
+.popup {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	padding: 20px 30px;
+	border: 1px solid $primary-light;
+	border-radius: 3px;
+	background: $dark;
+	color: $primary-light;
+}

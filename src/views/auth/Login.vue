@@ -40,10 +40,9 @@
 						this.$router.push('/')
 					})
 					.catch(err => {
-						alert(messages[err])
+						this.$popup(messages[err])
 						this.buttonDisable = false
 					})
-
 			}
 		}
 	}

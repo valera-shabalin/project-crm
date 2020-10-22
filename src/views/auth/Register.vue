@@ -35,7 +35,6 @@
 		},
 		methods: {
 			register() {
-				console.log(this.$v)
 				if (this.$v.$invalid) {
 					this.$v.$touch()
 					return
@@ -54,7 +53,7 @@
 						this.$router.push('/')
 					})
 					.catch(err => {
-						alert(messages[err])
+						this.$popup(messages[err])
 						this.buttonDisable = false
 					})
 				
