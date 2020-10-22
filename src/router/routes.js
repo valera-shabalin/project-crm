@@ -6,16 +6,28 @@ const routes = [
 		component: () => import('@/views/Home')
 	},
 	{
-		path: '/Login',
+		path: '/login',
 		name: 'Login',
 		meta: { layout: 'auth' },
 		component: () => import('@/views/auth/Login')
 	},
 	{
-		path: '/Register',
+		path: '/register',
 		name: 'Register',
 		meta: { layout: 'auth' },
 		component: () => import('@/views/auth/Register')
+	},
+	{
+		path: '/settings',
+		name: 'Settings',
+		meta: { layout: 'main' },
+		component: () => import('@/views/Settings')
+	},
+	{
+		path: '/notifications',
+		name: 'Notifications',
+		meta: { layout: 'main' },
+		component: () => import('@/views/Notifications')
 	}
 ]
 
