@@ -14,6 +14,13 @@ export default {
 			try {
 				await firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
 			} catch(err) { throw err }
+		},
+		async LOGOUT({ commit }) {
+			try {
+				await firebase.auth().signOut()
+			} catch(err) {
+				throw(err)
+			}
 		}
 	},
 	mutations: {

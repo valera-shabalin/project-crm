@@ -1,11 +1,11 @@
 <template>
-	<div class="main-layout d-flex align-items-center">
-    <Sidebar :open="sidebar" />
+  <div class="main-layout">
+    <TheSidebar :class="{ 'open': sidebar }"/>
     <div class="main-layout__body">
-      <Header @toggleMenu="sidebar = !sidebar" />
+      <TheHeader @toggleSidebar="sidebar = !sidebar"/>
       <router-view></router-view>
     </div>
-	</div>
+  </div>
 </template>
 
 <script>
@@ -15,8 +15,8 @@
       sidebar: false
     }),
     components: {
-		  Header: () => import('@/components/main/Header'),
-      Sidebar: () => import('@/components/main/Sidebar')
+		  TheHeader: () => import('@/components/main/TheHeader'),
+      TheSidebar: () => import('@/components/main/TheSidebar')
     }
 	}
 </script>
@@ -25,11 +25,12 @@
   .main-layout {
     height: 100vh;
     width: 100vw;
+    display: flex;
+    align-items: center;
     overflow: hidden;
     &__body {
       height: 100%;
       flex-grow: 1;
-      flex-basis: 100%;
     }
   }
 </style>
