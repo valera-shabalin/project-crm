@@ -31,6 +31,9 @@
     &__body {
       height: 100%;
       flex-grow: 1;
+      .header {
+        margin-bottom: 10px;
+      }
     }
   }
 </style>

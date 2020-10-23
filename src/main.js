@@ -19,6 +19,7 @@ import PasswordInput from './components/fields/PasswordInput'
 import DefaultLabel from './components/fields/DefaultLabel'
 import DefaultButton from './components/items/DefaultButton'
 import Avatar from './components/items/Avatar'
+import Loader from './components/items/Loader'
 
 Vue.config.productionTip = false
 
@@ -32,6 +33,7 @@ Vue.component('PasswordInput', PasswordInput)
 Vue.component('DefaultLabel', DefaultLabel)
 Vue.component('DefaultButton', DefaultButton)
 Vue.component('Avatar', Avatar)
+Vue.component('Loader', Loader)
 
 /* Include Firebase to project */
 firebase.initializeApp(firebaseConfig)

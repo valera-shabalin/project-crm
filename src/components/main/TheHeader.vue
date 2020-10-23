@@ -18,6 +18,7 @@
       async logout() {
         try {
           await this.$store.dispatch('LOGOUT')
+          this.$popup('Вы вышли из системы')
           this.$router.push('/login')
         } catch(err) {
           this.$popup('Неизвестная ошибка')
@@ -43,8 +44,13 @@
     &__tools {
       cursor: pointer;
       svg {
-        margin-left: 10px;
+        margin-left: 15px;
       }
+    }
+  }
+  @media (max-width: 576px) {
+    .header {
+      padding: 15px;
     }
   }
 </style>
