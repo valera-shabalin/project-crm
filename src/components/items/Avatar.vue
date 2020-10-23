@@ -1,7 +1,9 @@
 <template>
-  <div class="avatar">
-    <img :src="path" :alt="alt" v-if="path">
-    <span v-else>{{ value }}</span>
+  <div class="avatar" :style="`height:${size}px;width:${size}px`">
+    <div class="avatar__body">
+      <img :src="path" :alt="alt" v-if="path">
+      <span v-else>{{ value }}</span>
+    </div>
     <div class="status"></div>
   </div>
 </template>
@@ -21,6 +23,10 @@
       value: {
         type: String,
         default: 'U'
+      },
+      size: {
+        type: Number,
+        default: 50
       }
     }
   }
@@ -29,17 +35,22 @@
 <style lang="scss">
   .avatar {
     position: relative;
-    height: 50px;
-    width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: $primary-light;
+    &__body {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        max-height: 100%;
+      }
+    }
     .status {
       position: absolute;
+      right: 18px;
       bottom: 0;
-      right: 15px;
       height: 20px;
       width: 20px;
       border-radius: 50%;

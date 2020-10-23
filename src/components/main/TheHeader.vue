@@ -6,18 +6,29 @@
     <div class="header__tools">
       <Notifications :notifications="true"/>
       <SvgSettings @click="$router.push('/settings')"/>
+      <SvgLogout @click="logout"/>
     </div>
   </header>
 </template>
 
 <script>
-  import Notifications from "@/components/items/Notifications";
   export default {
     name: 'TheHeader',
+    methods: {
+      async logout() {
+        try {
+          await this.$store.dispatch('LOGOUT')
+          this.$router.push('/login')
+        } catch(err) {
+          this.$popup('Неизвестная ошибка')
+        }
+      }
+    },
     components: {
       SvgHamburger: () => import('@/components/svg/SvgHamburger'),
       Notifications: () => import('@/components/items/Notifications'),
-      SvgSettings: () => import('@/components/svg/SvgSettings')
+      SvgSettings: () => import('@/components/svg/SvgSettings'),
+      SvgLogout: () => import('@/components/svg/SvgLogout')
     }
   }
 </script>
@@ -31,6 +42,9 @@
     }
     &__tools {
       cursor: pointer;
+      svg {
+        margin-left: 10px;
+      }
     }
   }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="main-layout">
-    <TheSidebar :class="{ 'open': sidebar }"/>
+    <TheSidebar :class="{ 'open': menu }"/>
     <div class="main-layout__body">
-      <TheHeader @toggleSidebar="sidebar = !sidebar"/>
+      <TheHeader @toggleSidebar="menu = !menu"/>
       <router-view></router-view>
     </div>
   </div>
@@ -12,7 +12,7 @@
 	export default {
 		name: 'MainLayout',
     data: () => ({
-      sidebar: false
+      menu: false
     }),
     components: {
 		  TheHeader: () => import('@/components/main/TheHeader'),
