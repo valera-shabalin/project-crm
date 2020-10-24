@@ -39,7 +39,7 @@
   }
   @media (max-width: 767px) {
     .sidebar.open {
-      flex: 0 1 200px;
+      flex: 0 1 250px;
     }
   }
   @media (max-width: 576px) {

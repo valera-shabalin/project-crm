@@ -10,9 +10,6 @@
 		name: 'DefaultButton',
 		props: {
 			disable: { type: Boolean, default: false }
-		},
-		components: {
-			Loader: () => import('@/components/items/Loader')
 		}
 	}
 </script>
