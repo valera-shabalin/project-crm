@@ -33,6 +33,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all ease-out .1s;
     h3 {
       margin-top: 15px;
       text-align: center;
