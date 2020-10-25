@@ -10,16 +10,15 @@
     name: 'SidebarMenu',
     data: () => ({
       menuLinks: [
-          { title: 'Рабочий стол', to: '/work-space', icon: 'SvgGrid' },
-          { title: 'Группы', to: '/groups', icon: 'SvgGrid' },
-          { title: 'Компании', to: '/companies', icon: 'SvgGrid' },
+          { title: 'Рабочий стол', to: '/', icon: 'SvgGrid' },
+          { title: 'Группы', to: '/groups', icon: 'SvgUsers' },
+          { title: 'Контакты', to: '/contacts', icon: 'SvgGrid' },
           { title: 'Проекты', to: '/projects', icon: 'SvgGrid' }
       ],
       statLinks: [
-          { title: 'Рабочий стол', to: '/work-space', icon: 'SvgGrid' },
-          { title: 'Группы', to: '/groups', icon: 'SvgGrid' },
-          { title: 'Компании', to: '/companies', icon: 'SvgGrid' },
-          { title: 'Проекты', to: '/projects', icon: 'SvgGrid' }
+          { title: 'Личная статистика', to: '/statistics', icon: 'SvgGrid' },
+          { title: 'Активные задачи', to: '/statistics/tasks', icon: 'SvgGrid' },
+          { title: 'Активные проекты', to: '/statistics/projects', icon: 'SvgGrid' }
       ]
     }),
     components: {

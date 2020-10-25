@@ -5,6 +5,8 @@
       <router-link
           v-for="(link, index) of links"
           :to="link.to"
+          active-class="active"
+          exact
           :key="index"><component :is="link.icon"></component><span>{{ link.title }}</span></router-link>
     </nav>
   </div>
@@ -24,7 +26,8 @@
       }
     },
     components: {
-      SvgGrid: () => import('@/components/svg/SvgGrid')
+      SvgGrid: () => import('@/components/svg/SvgGrid'),
+      SvgUsers: () => import('@/components/svg/SvgUsers')
     }
   }
 </script>
@@ -47,6 +50,9 @@
           margin-right: 8px;
         }
         &:hover {
+          background: lighten($accent, 3);
+        }
+        &.active {
           background: lighten($accent, 3);
         }
       }
