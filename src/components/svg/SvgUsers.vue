@@ -10,7 +10,7 @@
 
 <script>
 	export default {
-		name: 'SvgGrid',
+		name: 'SvgUsers',
     props: {
 		  size: {
 		    type: String,

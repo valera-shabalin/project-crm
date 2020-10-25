@@ -12,13 +12,13 @@
       menuLinks: [
           { title: 'Рабочий стол', to: '/', icon: 'SvgGrid' },
           { title: 'Группы', to: '/groups', icon: 'SvgUsers' },
-          { title: 'Контакты', to: '/contacts', icon: 'SvgGrid' },
-          { title: 'Проекты', to: '/projects', icon: 'SvgGrid' }
+          { title: 'Контакты', to: '/contacts', icon: 'SvgPerson' },
+          { title: 'Проекты', to: '/projects', icon: 'SvgLayouts' }
       ],
       statLinks: [
-          { title: 'Личная статистика', to: '/statistics', icon: 'SvgGrid' },
-          { title: 'Активные задачи', to: '/statistics/tasks', icon: 'SvgGrid' },
-          { title: 'Активные проекты', to: '/statistics/projects', icon: 'SvgGrid' }
+          { title: 'Личная статистика', to: '/statistics', icon: 'SvgPerson' },
+          { title: 'Статистика по задачам', to: '/statistics/tasks', icon: 'SvgAlbums' },
+          { title: 'Статистика по проектам', to: '/statistics/projects', icon: 'SvgLayouts' }
       ]
     }),
     components: {

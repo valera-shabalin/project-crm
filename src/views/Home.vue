@@ -15,3 +15,9 @@
 		name: 'Home'
 	}
 </script>
+
+<style lang="scss" scoped>
+  .home-view {
+
+  }
+</style>

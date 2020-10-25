@@ -27,7 +27,10 @@
     },
     components: {
       SvgGrid: () => import('@/components/svg/SvgGrid'),
-      SvgUsers: () => import('@/components/svg/SvgUsers')
+      SvgUsers: () => import('@/components/svg/SvgUsers'),
+      SvgPerson: () => import('@/components/svg/SvgPerson'),
+      SvgLayouts: () => import('@/components/svg/SvgLayouts'),
+      SvgAlbums: () => import('@/components/svg/SvgAlbums')
     }
   }
 </script>
@@ -40,7 +43,7 @@
     }
     nav {
       a {
-        padding: 12px 0 12px 50px;
+        padding: 12px 20px 12px 50px;
         display: flex;
         align-items: center;
         text-decoration: none;
@@ -65,7 +68,7 @@
       }
       nav {
         a {
-          padding: 10px 0 10px 30px;
+          padding: 10px 20px 10px 30px;
         }
       }
     }
