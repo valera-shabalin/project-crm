@@ -1,6 +1,6 @@
 <template>
   <div class="main-layout">
-    <TheSidebar :class="{ 'open': menu }"/>
+    <TheSidebar :class="{ 'open': menu }" @close="menu = false"/>
     <div class="main-layout__body">
       <TheHeader @toggleSidebar="menu = !menu"/>
       <router-view></router-view>
@@ -14,6 +14,17 @@
     data: () => ({
       menu: false
     }),
+    methods: {
+      async logout() {
+        try {
+          await this.$store.dispatch('LOGOUT')
+          this.$popup('Вы вышли из системы')
+          this.$router.push('/login')
+        } catch(err) {
+          this.$popup('Неизвестная ошибка')
+        }
+      }
+    },
     components: {
 		  TheHeader: () => import('@/components/main/TheHeader'),
       TheSidebar: () => import('@/components/main/TheSidebar')

@@ -1,11 +1,11 @@
 <template>
-  <header class="header d-flex align-items-center justify-content-between">
+  <header class="header">
     <div class="header__hamburger">
       <SvgHamburger :color="'#222B45'" @click="$emit('toggleSidebar')"/>
     </div>
     <div class="header__tools">
       <Notifications :notifications="true"/>
-      <SvgSettings @click="$router.push('/settings')"/>
+      <router-link to="/settings"><SvgSettings/></router-link>
       <SvgLogout @click="logout"/>
     </div>
   </header>
@@ -37,6 +37,9 @@
 <style lang="scss" scoped>
   .header {
     padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     box-shadow: 8px 4px 10px 2px #FAFAFA;
     &__hamburger {
       cursor: pointer;
